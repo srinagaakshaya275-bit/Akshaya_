@@ -31,7 +31,21 @@ const stack = [
   { title: 'Create & collaborate', items: ['Canva', 'InShot', 'VN', 'Notion', 'Office 365', 'AI tools'] },
   { title: 'Manage & measure', items: ['Sprout Social', 'Agorapulse', 'Hootsuite', 'Metabase'] },
 ];
-const certifications = ['Fundamentals of Digital Marketing', 'Search Engine Optimisation', 'Google Analytics', 'Google Ads', 'CRM', 'Omni-channel Marketing', 'Generative AI', 'Content Writing', 'Fundamentals of Social Media Marketing', 'Meta Social Media Marketing Specialization', 'Social Media Monitoring', 'Content Creation using Canva'];
+const certifications = [
+  'Fundamentals of Digital Marketing',
+  'Search Engine Optimisation',
+  'Google Analytics',
+  'Google Ads',
+  'CRM',
+  'Omni-channel Marketing',
+  'Generative AI',
+  'Content Writing',
+  'Fundamentals of Social Media Marketing',
+  'Meta Social Media Marketing Specialization',
+  'Social Media Monitoring',
+  'Content Creation using Canva'
+];
+const humanSkills = ['Ownership', 'Team collaboration', 'Problem solving', 'Effective communication', 'Time management'];
 
 function CookieIntro({ onEnter }: { onEnter: () => void }) {
   const [noPos, setNoPos] = useState({ x: 0, y: 0 });
@@ -170,22 +184,39 @@ function Portfolio() {
       <Button variant="ghost" size="icon" className="mobile-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}>{menuOpen ? <X/> : <Menu/>}</Button>
     </header>
     <main>
-      <section className="hero site-width" aria-label="Meet Akshaya">
-        <img className="hero-art" src={heroImage} width={1536} height={1024} alt="Playful sculptural coral chrome asterisk with mint and blue spheres" fetchPriority="high" />
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="status-dot"/> MARKETING. CULTURE. A LITTLE CHAOS.</div>
-          <h1><span>Akshaya</span><span className="name-line">Reddy.<Asterisk aria-hidden="true"/></span></h1>
-          <p className="hero-subtitle">I turn <RotatingWord /><br/>into lasting impact.</p>
-          <p className="hero-description text-base sm:text-lg leading-relaxed">Associate Marketing Manager at Masai.<br/>Connecting culture, content & search to make brands<br className="hidden md:block"/> more seen, more trusted, and more loved.</p>
-          <div className="hero-actions">
+      {/* HERO SECTION - Tight typography and sculpture anchored behind text */}
+      <section className="hero site-width relative overflow-hidden flex flex-col justify-between" aria-label="Meet Akshaya">
+        {/* Background Artwork */}
+        <div className="absolute top-0 right-0 w-[105%] sm:w-[85%] md:w-[65%] h-[340px] sm:h-[440px] md:h-full pointer-events-none z-0 overflow-hidden">
+          <img 
+            className="hero-art w-full h-full object-contain md:object-cover object-[90%_20%] md:object-center opacity-75 dark:opacity-55 md:opacity-100" 
+            src={heroImage} 
+            width={1536} 
+            height={1024} 
+            alt="Playful sculptural coral chrome asterisk with mint and blue spheres" 
+            fetchPriority="high" 
+          />
+          <div className="hero-sticker hidden sm:flex"><Sparkles/> Strategy brain.<br/>Creative soul.</div>
+        </div>
+
+        {/* Hero Copy */}
+        <div className="hero-copy relative z-10 pt-1 sm:pt-4 max-w-[620px]">
+          <div className="eyebrow mb-2 sm:mb-3"><span className="status-dot"/> MARKETING. CULTURE. A LITTLE CHAOS.</div>
+          <h1 className="text-[46px] leading-[0.92] sm:text-7xl md:text-[104px] tracking-tight font-bold">
+            <span className="block">Akshaya</span>
+            <span className="name-line block -mt-1 sm:mt-0">Reddy.<Asterisk aria-hidden="true"/></span>
+          </h1>
+          <p className="hero-subtitle mt-3 sm:mt-4 text-xl sm:text-2xl leading-snug">I turn <RotatingWord /><br/>into lasting impact.</p>
+          <p className="hero-description text-base sm:text-lg leading-relaxed mt-2.5 sm:mt-3">Associate Marketing Manager at Masai.<br/>Connecting culture, content & search to make brands<br className="hidden md:block"/> more seen, more trusted, and more loved.</p>
+          <div className="hero-actions mt-5 mb-3 md:mb-0">
             <Button asChild className="pill-button"><a href="#work">Explore my work <ArrowUpRight/></a></Button>
             <Button variant="link" asChild className="text-sm">
-              <a href="/Akshaya_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">My résumé <Download/></a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">My résumé <Download/></a>
             </Button>
           </div>
         </div>
-        <div className="hero-sticker"><Sparkles/> Strategy brain.<br/>Creative soul.</div>
-        <div className="hero-foot text-sm"><span className="flex items-center gap-1.5"><MapPin size={14}/> Bengaluru, India </span><a href="#impact" className="flex items-center gap-2">A little scroll, a lot of story <ArrowDown size={20}/></a></div>
+
+        <div className="hero-foot text-sm relative z-10 mt-4 md:mt-0"><span className="flex items-center gap-1.5"><MapPin size={14}/> Bengaluru, India </span><a href="#impact" className="flex items-center gap-2">A little scroll, a lot of story <ArrowDown size={20}/></a></div>
       </section>
 
       <section className="metric-band site-width" id="impact" aria-label="Career impact">
@@ -276,7 +307,7 @@ function Portfolio() {
             <h2>Every role.<br/>A new perspective.</h2>
             <p className="section-intro mt-5 text-lg">From content calendars to brand trust.<br/>The experiences that shaped how I think, create and lead.</p>
             <Button variant="link" asChild className="mt-4 mb-6 px-0 text-sm font-medium">
-              <a href="/Akshaya_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">The full résumé <ArrowUpRight/></a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">The full résumé <ArrowUpRight/></a>
             </Button>
 
             {/* GAMER CAT COMPANION CARD */}
@@ -353,9 +384,20 @@ function Portfolio() {
               </div>
             ))}
           </div>
-          <div className="stack-footer" style={{ fontSize: '1rem', fontWeight: 500 }}>
-            <span>THE HUMAN SKILLS →</span>
-            {['Ownership','.', 'Team collaboration','.', 'Problem solving','.', 'Effective communication','.', 'Time management'].map(s => <span key={s}>{s}</span>)}
+
+          {/* Formatted Side-by-Side Human Skills */}
+          <div className="mt-8 pt-6 border-t border-white/20">
+            <span className="block text-xs font-bold tracking-wider uppercase opacity-80 mb-3">THE HUMAN SKILLS</span>
+            <div className="flex flex-wrap items-center gap-2.5">
+              {humanSkills.map(skill => (
+                <span 
+                  key={skill} 
+                  className="px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-black/15 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/10 transition-transform active:scale-95 shadow-sm"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -404,28 +446,28 @@ function Portfolio() {
           <div className="reveal">
             <h3 className="foundation-title" style={{ fontSize: '1.35rem' }}>Courses & certifications</h3>
             <div className="cert-list flex flex-wrap gap-2.5">
-              {certifications.map((c, index) => (
-                <span
+              {certifications.map(c => (
+                <button
+                  type="button"
                   key={c}
-                  style={{
-                    animationDelay: `${index * 80}ms`,
-                  }}
                   className="group relative inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-medium
                              bg-white border border-black/10 dark:bg-neutral-900 dark:border-white/10
-                             transition-all duration-300 ease-out cursor-default select-none
+                             transition-all duration-200 ease-out select-none cursor-pointer text-left
                              hover:-translate-y-1 hover:border-emerald-500/60
                              hover:shadow-[0_0_20px_rgba(16,185,129,0.35)] dark:hover:shadow-[0_0_25px_rgba(16,185,129,0.45)]
-                             animate-in fade-in slide-in-from-bottom-2 fill-mode-both"
+                             active:-translate-y-1 active:border-emerald-500/80
+                             active:shadow-[0_0_22px_rgba(16,185,129,0.55)] dark:active:shadow-[0_0_25px_rgba(16,185,129,0.65)]
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                 >
-                  <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-emerald-500/10 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-200 pointer-events-none" />
                   <BadgeCheck
                     size={17}
-                    className="text-emerald-500 transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]"
+                    className="text-emerald-500 transition-all duration-200 group-hover:scale-110 group-active:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.8)] group-active:drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]"
                   />
-                  <span className="relative z-10 transition-colors duration-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                  <span className="relative z-10 text-neutral-800 dark:text-neutral-200 transition-colors duration-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-active:text-emerald-600 dark:group-active:text-emerald-400">
                     {c}
                   </span>
-                </span>
+                </button>
               ))}
             </div>
           </div>
@@ -461,37 +503,37 @@ function Portfolio() {
 
     <footer className="site-width footer">
       <a className="brand text-foreground" href="#">ar<span className="brand-star">✳</span></a>
-      <span className="text-sm text-neutral-800">© {new Date().getFullYear()} Akshaya Reddy</span>
-      <a href="#" className="flex items-center gap-2 text-sm text-neutral-700 hover:text-white">Back to top <ArrowUpRight size={14}/></a>
+      <span className="text-sm text-neutral-800 dark:text-neutral-400">© {new Date().getFullYear()} Akshaya Reddy</span>
+      <a href="#" className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300 hover:text-white">Back to top <ArrowUpRight size={14}/></a>
     </footer>
 
-    {/* CASE STUDY MODAL DIALOG */}
+    {/* CASE STUDY MODAL DIALOG - TEXT CONTRAST FIXED FOR DARK MODE */}
     <Dialog open={selected!==null} onOpenChange={open=>{if(!open)setSelected(null)}}>
-      <DialogContent className="case-modal max-w-2xl bg-white text-neutral-900 border border-neutral-200 shadow-2xl p-6 sm:p-8">
+      <DialogContent className="case-modal max-w-2xl bg-white dark:bg-[#141414] text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-white/10 shadow-2xl p-6 sm:p-8">
         {selected && <>
-          <div className="eyebrow text-xs font-semibold tracking-wider text-neutral-500 uppercase">{selected.company} / {selected.label}</div>
-          <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-950 mt-1 mb-2 leading-snug">{selected.title}</DialogTitle>
-          <DialogDescription className="text-base text-neutral-700 leading-relaxed font-normal mb-5">{selected.summary}</DialogDescription>
+          <div className="eyebrow text-xs font-semibold tracking-wider text-neutral-500 dark:text-neutral-400 uppercase">{selected.company} / {selected.label}</div>
+          <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-950 dark:text-white mt-1 mb-2 leading-snug">{selected.title}</DialogTitle>
+          <DialogDescription className="text-base text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal mb-5">{selected.summary}</DialogDescription>
           
-          <h3 className="text-lg font-bold text-neutral-950 mt-4 mb-1">The challenge</h3>
-          <p className="text-[15px] leading-relaxed text-neutral-800 mb-4">{selected.challenge}</p>
+          <h3 className="text-lg font-bold text-neutral-950 dark:text-neutral-100 mt-4 mb-1">The challenge</h3>
+          <p className="text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-300 mb-4">{selected.challenge}</p>
           
-          <h3 className="text-lg font-bold text-neutral-950 mt-4 mb-2">The approach</h3>
+          <h3 className="text-lg font-bold text-neutral-950 dark:text-neutral-100 mt-4 mb-2">The approach</h3>
           <ul className="space-y-2 mb-6">
             {selected.approach.map(a => (
-              <li key={a} className="text-[15px] leading-relaxed text-neutral-800 flex items-start gap-2">
-                <span className="text-neutral-500 font-bold">→</span>
+              <li key={a} className="text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-300 flex items-start gap-2">
+                <span className="text-neutral-500 dark:text-emerald-400 font-bold">→</span>
                 <span>{a}</span>
               </li>
             ))}
           </ul>
           
-          <div className="case-outcome p-4 sm:p-5 rounded-xl bg-neutral-100 border border-neutral-200">
-            <div className="eyebrow text-xs font-bold tracking-wider text-neutral-600 uppercase">THE IMPACT / {selected.metric}</div>
-            <p className="mt-2 text-[15px] leading-relaxed text-neutral-900 font-medium">{selected.outcome}</p>
+          <div className="case-outcome p-4 sm:p-5 rounded-xl bg-neutral-100 dark:bg-neutral-900/80 border border-neutral-200 dark:border-white/10">
+            <div className="eyebrow text-xs font-bold tracking-wider text-neutral-600 dark:text-neutral-400 uppercase">THE IMPACT / {selected.metric}</div>
+            <p className="mt-2 text-[15px] leading-relaxed text-neutral-900 dark:text-neutral-100 font-medium">{selected.outcome}</p>
           </div>
           
-          <p className="text-xs text-neutral-500 mt-4">Experience summary based on the supplied résumé, not a standalone campaign report.</p>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-4">Experience summary based on the supplied résumé, not a standalone campaign report.</p>
         </>}
       </DialogContent>
     </Dialog>

@@ -35,4 +35,6 @@ export const experience = [
   { company: 'Trixal Media', date: 'JUL — AUG 2024', location: 'Remote', roles: [{ title: 'Social Media Marketing Intern', points: ['Enhanced brand presence and engagement by 65% through social content and strategy.', 'Directed brand-aligned design projects and visual assets.'] }] },
   { company: 'GrowUMedia', date: 'FEB — JUN 2024', location: 'Remote', roles: [{ title: 'Content Marketing Strategy Intern', points: ['Curated social pages and implemented content and engagement strategies.', 'Orchestrated podcast marketing for 4 clients and coordinated feedback across teams.'] }] },
   { company: 'Center for Teaching & Learning', date: 'AUG 2023 — JAN 2024', location: 'Amaravati, AP', roles: [{ title: 'Administrative & Social Media Intern', points: ['Prepared reports, agendas and presentations for orientation sessions.', 'Managed social content creation and engagement initiatives.'] }] },
+
+
 ];
