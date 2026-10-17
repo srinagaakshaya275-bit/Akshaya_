@@ -211,7 +211,7 @@ function Portfolio() {
           <div className="hero-actions mt-5 mb-3 md:mb-0">
             <Button asChild className="pill-button"><a href="#work">Explore my work <ArrowUpRight/></a></Button>
             <Button variant="link" asChild className="text-sm">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">My résumé <Download/></a>
+              <a href="/Akshaya_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">My résumé <Download/></a>
             </Button>
           </div>
         </div>
@@ -307,7 +307,7 @@ function Portfolio() {
             <h2>Every role.<br/>A new perspective.</h2>
             <p className="section-intro mt-5 text-lg">From content calendars to brand trust.<br/>The experiences that shaped how I think, create and lead.</p>
             <Button variant="link" asChild className="mt-4 mb-6 px-0 text-sm font-medium">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">The full résumé <ArrowUpRight/></a>
+              <a href="/Akshaya_Reddy_Resume.pdf" target="_blank" rel="noopener noreferrer">The full résumé <ArrowUpRight/></a>
             </Button>
 
             {/* GAMER CAT COMPANION CARD */}
